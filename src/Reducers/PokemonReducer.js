@@ -1,5 +1,6 @@
 export default function reducer(state = {
-    pokemonList: []
+    pokemonList: [],
+    searchedPokemon: ''
 }, action)
 {
     switch (action.type) {
@@ -7,6 +8,12 @@ export default function reducer(state = {
             return {
                 ...state,
                 pokemonList: action.payload
+            }
+        }
+        case 'SEARCHED_POKEMON': {
+            return {
+                ...state,
+                searchedPokemon: action.payload
             }
         }
         default: return state;

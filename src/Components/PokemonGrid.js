@@ -8,26 +8,33 @@ class PokemonGrid extends Component {
     props.dispatch(getPokemonList());
   }
   renderPokemon() {
-    console.log(this.props.PokemonReducer);
+    console.log(this.props.PokemonReducer.searchedPokemon);
     var pokemonList = this.props.PokemonReducer.pokemonList;
     return pokemonList.map((pokemon) => {
-      console.log(pokemon);
       const value = pokemon.url;
       const parts = value.split('/');
       const picId = parts[6];
       const url = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${picId}.png`
-        return (
-          <div key={picId} className="poke-card">
-            <p>{pokemon.name}</p>
-            <img className="pokemon-pic" alt="" src={url}/>
-          </div>
-        )
+        if (this.props.PokemonReducer.searchedPokemon === '')
+          return (
+            <div key={picId} className="poke-card">
+              <p>{pokemon.name}</p>
+              <img className="pokemon-pic" alt="" src={url}/>
+            </div>
+          )
+        else if (this.props.PokemonReducer.searchedPokemon === pokemon.name) {
+          return (
+            <div key={picId} className="poke-card">
+              <p>{pokemon.name}</p>
+              <img className="pokemon-pic" alt="" src={url}/>
+            </div>
+          )
+        }
       }
     );
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className="pokemon-grid">
         { this.renderPokemon() }

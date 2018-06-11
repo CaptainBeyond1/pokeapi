@@ -13,7 +13,7 @@ class PokemonPage extends Component {
         return(
             <div> 
                 <Navbar/>
-                <Searchbar/>
+                <Searchbar {...this.props}/>
                 <PokemonGrid {...this.props} />        
             </div>
         )

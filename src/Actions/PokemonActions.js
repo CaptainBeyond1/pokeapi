@@ -18,3 +18,10 @@ function FETCHED_POKEMON(PokemonList) {
         payload: PokemonList
     }
 }
+
+export function searchPokemon(pokemon) {
+    return {
+        type: 'SEARCHED_POKEMON',
+        payload: pokemon
+    }
+}

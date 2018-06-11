@@ -49,3 +49,15 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(PokemonPage);
+
+
+
+
+GIT COMMANDS:
+
+
+git status (to see files)
+git add .
+git status (to see files)
+git commit -m '<Message here>'
+git push origin master
