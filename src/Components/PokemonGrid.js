@@ -8,7 +8,6 @@ class PokemonGrid extends Component {
     props.dispatch(getPokemonList());
   }
   renderPokemon() {
-    console.log(this.props.PokemonReducer.searchedPokemon);
     var pokemonList = this.props.PokemonReducer.pokemonList;
     return pokemonList.map((pokemon) => {
       const value = pokemon.url;
@@ -22,7 +21,7 @@ class PokemonGrid extends Component {
               <img className="pokemon-pic" alt="" src={url}/>
             </div>
           )
-        else if (this.props.PokemonReducer.searchedPokemon === pokemon.name) {
+        else if (this.props.PokemonReducer.searchedPokemon.toLowerCase() === pokemon.name) {
           return (
             <div key={picId} className="poke-card">
               <p>{pokemon.name}</p>
